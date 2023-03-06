@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 100%;
+            margin: auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <img class="slide" src="./images/image1.jpg">
+        <img class="slide" src="./images/image2.jpg">
+        <img class="slide" src="./images/image3.jpg">
+        <img class="slide" src="./images/image4.jpg">
+    </div>
+
+
+    <script>
+        var slides = document.getElementsByClassName("slide");
+        var currentSlide = 0;
+        var slideInterval = setInterval(nextSlide, 3000);
+
+        function nextSlide() {
+            slides[currentSlide].className = "slide";
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].className = "slide active";
+        }
+
+    </script>
+</body>
+</html>
